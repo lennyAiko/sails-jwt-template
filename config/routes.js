@@ -10,6 +10,7 @@
 
 module.exports.routes = {
 
-  'POST /auth/signup': 'auth/signup'
+  'POST /auth/signup': 'auth/signup',
+  'POST /auth/signin': 'auth/signin'
 
 };
