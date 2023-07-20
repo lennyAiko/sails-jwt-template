@@ -10,5 +10,6 @@
 
 module.exports.routes = {
 
+  'POST /auth/signup': 'auth/signup'
 
 };
