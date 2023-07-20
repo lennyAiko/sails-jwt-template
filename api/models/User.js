@@ -17,13 +17,15 @@ module.exports = {
     username: {
       type: 'string',
       required: true,
-      maxLength: 60
+      maxLength: 60,
+      unique: true
     },
 
     email: {
       type: 'string',
       required: true,
-      isEmail: true
+      isEmail: true,
+      unique: true
     },
 
     password: {
