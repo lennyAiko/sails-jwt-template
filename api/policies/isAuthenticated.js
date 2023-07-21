@@ -1,4 +1,4 @@
-module.exports = async function (req, res, proceed) {
+module.exports = async (req, res, proceed) => {
   var token;
 
   if (req.headers && req.headers.authorization) {

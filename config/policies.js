@@ -19,9 +19,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  'auth/signin': 'pathLogger',
-  'auth/signup': 'pathLogger',
-  'auth/refresh': 'pathLogger',
-  '*': ['isAuthenticated', 'pathLogger'],
+  'auth/*': 'pathLogger',
+  '*': ['pathLogger', 'isAuthenticated'],
 
 };
