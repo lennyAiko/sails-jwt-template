@@ -33,8 +33,8 @@ module.exports = {
 
 
   fn: async function ({payload}, exits) {
-    const accessToken = jwt.sign(payload, accessTokenSecret, {expiresIn: `1h`});
-    const refreshToken = jwt.sign(payload, refreshTokenSecret, {expiresIn: `2d`});
+    const accessToken = jwt.sign(payload, accessTokenSecret, {expiresIn: '1h'});
+    const refreshToken = jwt.sign(payload, refreshTokenSecret, {expiresIn: '2d'});
 
     return exits.success({ access: accessToken, refresh: refreshToken });
 
