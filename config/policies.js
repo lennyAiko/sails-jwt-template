@@ -14,9 +14,14 @@ module.exports.policies = {
   *                                                                          *
   * Default policy for all controllers and actions, unless overridden.       *
   * (`true` allows public access)                                            *
+  * '': 'single policy'                                                      *
+  * '': ['multiple', 'policies]                                              *
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  'auth/signin': true,
+  'auth/signup': true,
+  'auth/refresh': true,
+  '*': 'isAuthenticated',
 
 };
