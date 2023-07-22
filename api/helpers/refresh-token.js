@@ -2,24 +2,23 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET;
-const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET;
 
 module.exports = {
 
 
-  friendlyName: 'Sign token',
+  friendlyName: 'Refresh token',
 
 
-  description: 'This is the helper for signing your token',
+  description: '',
 
 
   inputs: {
 
     payload: {
       type: 'json',
-      isNotEmptyString: true,
-      description: 'This is the payload to be signed.'
-    },
+      required: true
+    }
+
   },
 
 
@@ -34,11 +33,10 @@ module.exports = {
 
   fn: async function ({payload}, exits) {
     const accessToken = jwt.sign(payload, accessTokenSecret, {expiresIn: '1h'});
-    const refreshToken = jwt.sign(payload, refreshTokenSecret, {expiresIn: '2d'});
 
-    return exits.success({ access: accessToken, refresh: refreshToken });
-
+    return exits.success({ access: accessToken })
   }
 
 
 };
+
