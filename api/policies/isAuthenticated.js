@@ -26,6 +26,7 @@ module.exports = async (req, res, proceed) => {
       }
 
       req.user = decode.user;
+      req.issuer = decode.issuer;
       proceed();
     });
   } else {

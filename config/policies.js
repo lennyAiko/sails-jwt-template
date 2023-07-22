@@ -20,6 +20,6 @@ module.exports.policies = {
   ***************************************************************************/
 
   'auth/*': 'pathLogger',
-  '*': ['pathLogger', 'isAuthenticated'],
+  '*': ['pathLogger', 'isAuthenticated', 'checkIssuer'],
 
 };
