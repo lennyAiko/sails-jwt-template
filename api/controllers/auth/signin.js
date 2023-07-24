@@ -61,7 +61,7 @@ module.exports = {
       message = `${userRecord.email} has an active token, token updated`;
     } else {
       this.req.session.token = token.access;
-      message = `${userRecord.email} has an logged in`;
+      message = `${userRecord.email} has logged in`;
     }
     
     return exits.success({
