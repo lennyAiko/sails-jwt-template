@@ -55,8 +55,17 @@ module.exports = {
 
     const token = await sails.helpers.signToken({user: payload, issuer: tokenIssuer});
 
-    // All done.
+    var message;
+    if (this.req.session.token) {
+      this.req.session.token = token.access;
+      message = `${userRecord.email} has an active token, token updated`;
+    } else {
+      this.req.session.token = token.access;
+      message = `${userRecord.email} has an logged in`;
+    }
+    
     return exits.success({
+      message,
       access: token.access,
       refresh: token.refresh,
       data: userRecord

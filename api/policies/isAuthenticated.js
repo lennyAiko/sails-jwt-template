@@ -20,7 +20,9 @@ module.exports = async (req, res, proceed) => {
   }
 
   if (token) {
-    await sails.helpers.verifyToken(token, async (err, decode) => {
+
+    if (token === req.session.token) {
+      await sails.helpers.verifyToken(token, async (err, decode) => {
       if (err || !decode) {
         return res.status(401).json('Invalid token');
       }
@@ -28,8 +30,12 @@ module.exports = async (req, res, proceed) => {
       req.user = decode.user;
       req.issuer = decode.issuer;
       proceed();
-    });
+      });
+    } else {
+      return res.status(401).json('Invalid token');
+    }
   } else {
     return res.status(401).json({err: 'Not authenticated'});
   }
+    
 };
