@@ -34,15 +34,15 @@ module.exports = {
 
   fn: async function ({email}, exits) {
 
-    const newEmail = email.toLowerCase();
+    email = email.toLowerCase();
 
-    let userRecord = await User.findOne({ email: newEmail });
+    let userRecord = await User.findOne({ email: email });
 
     if (!userRecord) {
       return exits.notFound('User not found');
     }
 
-    const resetToken = await sails.helpers.resetToken({ email: newEmail });
+    const resetToken = await sails.helpers.resetToken({ email: email });
 
     return exits.success(resetToken);
 

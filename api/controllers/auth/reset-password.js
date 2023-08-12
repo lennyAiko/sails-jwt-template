@@ -51,14 +51,14 @@ module.exports = {
     // compare password and confirmpassword
     // compare new password with existing password
 
-    const newEmail = email.toLowerCase();
+    email = email.toLowerCase();
 
     await sails.helpers.verifyResetToken(token, async (err, decode) => {
       if (err || !decode) {
         return exits.invalid({ error: 'Send a valid reset token'});
       }
 
-      if (newEmail !== decode.email) {
+      if (email !== decode.email) {
         return exits.invalid({ error: 'Email does not match' });
       }
 
