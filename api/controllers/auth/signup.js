@@ -43,7 +43,7 @@ module.exports = {
     // check if user exists
     let checkUser = await User.findOne({ username: username });
     if (checkUser) {
-      return exits.invalidData;
+      return exits.invalidData({message: 'User already exists'});
     }
 
     // create user and catch error

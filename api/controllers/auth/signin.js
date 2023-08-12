@@ -63,7 +63,7 @@ module.exports = {
       this.req.session.token = token.access;
       message = `${userRecord.email} has logged in`;
     }
-    
+
     return exits.success({
       message,
       access: token.access,

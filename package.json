@@ -26,7 +26,6 @@
     "test": "npm run custom-tests && echo 'Done.'",
     "lint-test": "eslint ./test --fix",
     "lint-api": "eslint ./api --fix",
-    "coverage": "nyc npm test",
     "custom-tests": "node ./node_modules/mocha/bin/mocha test/lifecycle.test.js test/integrations/**/*.test.js"
   },
   "main": "app.js",
