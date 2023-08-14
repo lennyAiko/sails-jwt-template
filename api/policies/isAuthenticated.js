@@ -32,7 +32,7 @@ module.exports = async (req, res, proceed) => {
         proceed();
       });
     } else {
-      return res.status(401).json('Invalid token');
+      return res.status(401).json('Token does not match');
     }
   } else {
     return res.status(401).json({err: 'Not authenticated'});

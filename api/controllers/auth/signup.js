@@ -49,8 +49,8 @@ module.exports = {
     // create user and catch error
     try {
       email = email.toLowerCase();
-      const hashedPassword = await Sails.helpers.passwords.hashedPassword(password)
-      let user = await User.create({ id: uuidv4(), username, email, hashedPassword}).fetch();
+      const hashedPassword = await sails.helpers.passwords.hashPassword(password)
+      let user = await User.create({ id: uuidv4(), username, email, password: hashedPassword}).fetch();
       return exits.success(user);
     } catch (error) {
       return exits.badCombo(error);

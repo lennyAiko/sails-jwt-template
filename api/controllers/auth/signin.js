@@ -20,7 +20,7 @@ module.exports = {
 
   exits: {
     success: {
-      statusCode: 200,
+      statusCode: 201,
       description: 'If all credentials are correct'
     },
     badCombo: {

@@ -11,6 +11,7 @@ before(function (done) {
     if (err) {return done(err);}
     global.sails = sails;
     global.supertest = supertest;
+    global.web = sails.hooks.http.app;
     return done();
   });
 });
